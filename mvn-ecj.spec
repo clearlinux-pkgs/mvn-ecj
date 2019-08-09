@@ -4,16 +4,25 @@
 #
 Name     : mvn-ecj
 Version  : 1
-Release  : 1
+Release  : 2
 URL      : http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops4/R-4.10-201812060815/ecjsrc-4.10.jar
 Source0  : http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops4/R-4.10-201812060815/ecjsrc-4.10.jar
 Source1  : http://archive.eclipse.org/eclipse/downloads/drops4/R-4.10-201812060815/ecj-4.10.jar
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : EPL-2.0
+Requires: mvn-ecj-data = %{version}-%{release}
 
 %description
 No detailed description available
+
+%package data
+Summary: data components for the mvn-ecj package.
+Group: Data
+
+%description data
+data components for the mvn-ecj package.
+
 
 %prep
 %setup -q -n META-INF
@@ -21,6 +30,14 @@ No detailed description available
 %build
 
 %install
+## install_append content
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/
+cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/
+## install_append end
 
 %files
 %defattr(-,root,root,-)
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/ecj-4.10.jar
