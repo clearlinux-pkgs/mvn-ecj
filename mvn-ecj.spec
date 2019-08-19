@@ -4,10 +4,13 @@
 #
 Name     : mvn-ecj
 Version  : 1
-Release  : 2
+Release  : 3
 URL      : http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops4/R-4.10-201812060815/ecjsrc-4.10.jar
 Source0  : http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops4/R-4.10-201812060815/ecjsrc-4.10.jar
 Source1  : http://archive.eclipse.org/eclipse/downloads/drops4/R-4.10-201812060815/ecj-4.10.jar
+Source2  : https://repo.maven.apache.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar
+Source3  : https://repo.maven.apache.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar
+Source4  : https://repo.maven.apache.org/maven2/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.pom
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : EPL-2.0
@@ -30,6 +33,15 @@ data components for the mvn-ecj package.
 %build
 
 %install
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2
+cp %{SOURCE2} %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2
+cp %{SOURCE3} %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar
+
+mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2
+cp %{SOURCE4} %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.pom
+
 ## install_append content
 mkdir -p %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/
 cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/
@@ -40,4 +52,7 @@ cp %{SOURCE1} %{buildroot}/usr/share/java/.m2/repository/org/eclipse/jdt/core/co
 
 %files data
 %defattr(-,root,root,-)
+/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2-sources.jar
+/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.jar
+/usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.4.2/ecj-4.4.2.pom
 /usr/share/java/.m2/repository/org/eclipse/jdt/core/compiler/ecj/ecj-4.10.jar
