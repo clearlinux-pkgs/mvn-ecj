@@ -4,7 +4,7 @@
 #
 Name     : mvn-ecj
 Version  : 1
-Release  : 3
+Release  : 4
 URL      : http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops4/R-4.10-201812060815/ecjsrc-4.10.jar
 Source0  : http://ftp.osuosl.org/pub/eclipse/eclipse/downloads/drops4/R-4.10-201812060815/ecjsrc-4.10.jar
 Source1  : http://archive.eclipse.org/eclipse/downloads/drops4/R-4.10-201812060815/ecj-4.10.jar
